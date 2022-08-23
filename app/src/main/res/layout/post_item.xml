@@ -16,15 +16,15 @@
     android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="351dp"
-        android:layout_height="255dp">
+        android:layout_width="354dp"
+        android:layout_height="241dp">
 
         <TextView
             android:id="@+id/titleTV"
-            android:layout_width="294dp"
-            android:layout_height="53dp"
+            android:layout_width="287dp"
+            android:layout_height="50dp"
             android:layout_marginTop="16dp"
-            android:gravity="center"
+            android:paddingLeft="20dp"
             android:text="Title"
             android:textColor="#2C2A2A"
             android:textSize="14sp"
@@ -37,7 +37,7 @@
             android:id="@+id/idTV"
             android:layout_width="39dp"
             android:layout_height="43dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:gravity="center"
             android:text="Id"
@@ -50,10 +50,10 @@
 
         <TextView
             android:id="@+id/bodyTV"
-            android:layout_width="338dp"
-            android:layout_height="161dp"
+            android:layout_width="307dp"
+            android:layout_height="158dp"
             android:layout_marginTop="8dp"
-            android:gravity="center"
+            android:paddingLeft="10dp"
             android:text="Body"
             android:textColor="#201C1C"
             android:textSize="14sp"

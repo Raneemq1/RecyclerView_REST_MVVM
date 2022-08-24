@@ -64,6 +64,10 @@ class MainActivity : AppCompatActivity() {
          * Initialize recycler adapter
          */
         postAdapter = PostRecyclerAdapter()
+        /**
+         * Assign the recycler view adapter
+         */
+        postRecycler.adapter = postAdapter
 
     }
 
@@ -82,10 +86,8 @@ class MainActivity : AppCompatActivity() {
         viewModel.data.observe(this, Observer<List<PostModel>> { list ->
             postAdapter.postsList = list
             postsList = list
-            /**
-             * Assign the recycler view adapter
-             */
-            postRecycler.adapter = postAdapter
+            postAdapter.notifyDataSetChanged()
+
         })
     }
 

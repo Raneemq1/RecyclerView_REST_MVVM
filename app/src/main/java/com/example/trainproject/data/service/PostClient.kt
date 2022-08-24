@@ -10,21 +10,21 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 object PostClient {
 
-    val baseURL:String="https://jsonplaceholder.typicode.com/"
-    val apiInterface:PostInterfaceAPI
+    val baseURL: String = "https://jsonplaceholder.typicode.com/"
+    val apiInterface: PostInterfaceAPI
 
     init {
-        val retrofit=Retrofit.Builder()
+        val retrofit = Retrofit.Builder()
             .baseUrl(baseURL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        apiInterface=retrofit.create(PostInterfaceAPI::class.java)
+        apiInterface = retrofit.create(PostInterfaceAPI::class.java)
     }
 
     /**
      * Call all methods on api interface
      */
-    fun getPosts():Call<List<PostModel>>{
+    fun getPosts(): Call<List<PostModel>> {
 
         return apiInterface.getPost()
     }

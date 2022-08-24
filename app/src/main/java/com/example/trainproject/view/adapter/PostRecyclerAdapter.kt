@@ -8,16 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.trainproject.R
 import com.example.trainproject.data.model.PostModel
 
-class PostRecyclerAdapter  : RecyclerView.Adapter<PostRecyclerAdapter.ViewHolder>() {
+class PostRecyclerAdapter : RecyclerView.Adapter<PostRecyclerAdapter.ViewHolder>() {
     /**
      * Initialize a list of posts
      */
-    var postsList:List<PostModel> = ArrayList()
+     var postsList: List<PostModel> = ArrayList()
 
-    class ViewHolder( view :View):RecyclerView.ViewHolder(view){
-        val titleTV:TextView = view.findViewById(R.id.titleTV)
-        val bodyTV:TextView = view.findViewById(R.id.bodyTV)
-        val idTV :TextView = view.findViewById(R.id.idTV)
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val titleTV: TextView = view.findViewById(R.id.titleTV)
+        val bodyTV: TextView = view.findViewById(R.id.bodyTV)
+        val idTV: TextView = view.findViewById(R.id.idTV)
 
     }
 
@@ -30,13 +30,21 @@ class PostRecyclerAdapter  : RecyclerView.Adapter<PostRecyclerAdapter.ViewHolder
      * Fill widgets of card view with list posts information
      */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentItem=postsList[position]
-        holder.idTV.text=currentItem.userId.toString()
-        holder.titleTV.text=currentItem.title
-        holder.bodyTV.text=currentItem.body
+        val currentItem = postsList[position]
+        holder.idTV.text = currentItem.userId.toString()
+        holder.titleTV.text = currentItem.title
+        holder.bodyTV.text = currentItem.body
     }
 
     override fun getItemCount(): Int {
         return postsList.size
+    }
+
+    /**
+     * Method to update adapter
+     */
+    fun filteredData(filterList: ArrayList<PostModel> ){
+        postsList=filterList
+        notifyDataSetChanged()
     }
 }

@@ -8,16 +8,17 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PostViewModel :ViewModel() {
+class PostViewModel : ViewModel() {
 
-    var data:MutableLiveData<List<PostModel>> = MutableLiveData()
+    var data: MutableLiveData<List<PostModel>> = MutableLiveData()
 
-    fun getData(){
-        val callData=PostClient.getPosts()
-        callData.enqueue(object: Callback<List<PostModel>> {
+    fun getData() {
+        val callData = PostClient.getPosts()
+        callData.enqueue(object : Callback<List<PostModel>> {
             override fun onResponse(
-                call: Call<List<PostModel>>, response: Response<List<PostModel>>) {
-                data.value=response.body()
+                call: Call<List<PostModel>>, response: Response<List<PostModel>>
+            ) {
+                data.value = response.body()
             }
 
             override fun onFailure(call: Call<List<PostModel>>, t: Throwable) {

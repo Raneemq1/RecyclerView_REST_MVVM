@@ -52,6 +52,22 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Initialize recycler view and its adapter
+     */
+    private fun initRecyclerView() {
+        postRecycler = findViewById(R.id.postRecycler)
+        postRecycler.layoutManager = LinearLayoutManager(this)
+        postRecycler.setHasFixedSize(true)
+
+        /**
+         * Initialize recycler adapter
+         */
+        postAdapter = PostRecyclerAdapter()
+
+    }
+
+
     private fun initViewModel() {
         viewModel = PostViewModel()
         viewModel = ViewModelProviders.of(this).get(PostViewModel::class.java)
@@ -71,18 +87,6 @@ class MainActivity : AppCompatActivity() {
              */
             postRecycler.adapter = postAdapter
         })
-    }
-
-    private fun initRecyclerView() {
-        postRecycler = findViewById(R.id.postRecycler)
-        postRecycler.layoutManager = LinearLayoutManager(this)
-        postRecycler.setHasFixedSize(true)
-
-        /**
-         * Initialize recycler adapter
-         */
-        postAdapter = PostRecyclerAdapter()
-
     }
 
 

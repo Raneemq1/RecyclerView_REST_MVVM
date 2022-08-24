@@ -1,6 +1,7 @@
 package com.example.trainproject.data.service
 
 import com.example.trainproject.data.model.PostModel
+import com.example.trainproject.data.remote.ApiConstant
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -10,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 object PostClient {
 
-    val baseURL: String = "https://jsonplaceholder.typicode.com/"
+    val baseURL: String = ApiConstant.baseURL
     val apiInterface: PostInterfaceAPI
 
     init {

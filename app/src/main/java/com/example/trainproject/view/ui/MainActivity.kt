@@ -44,13 +44,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        initRecyclerView()
 
         initViewModel()
 
-        initRecyclerView()
-
         initSwipeRefresh()
-
 
     }
 
@@ -68,6 +66,10 @@ class MainActivity : AppCompatActivity() {
         viewModel.data.observe(this, Observer<List<PostModel>> { list ->
             postAdapter.postsList = list
             postsList = list
+            /**
+             * Assign the recycler view adapter
+             */
+            postRecycler.adapter = postAdapter
         })
     }
 
@@ -77,10 +79,10 @@ class MainActivity : AppCompatActivity() {
         postRecycler.setHasFixedSize(true)
 
         /**
-         * Assign recycler adapter
+         * Initialize recycler adapter
          */
         postAdapter = PostRecyclerAdapter()
-        postRecycler.adapter = postAdapter
+
     }
 
 

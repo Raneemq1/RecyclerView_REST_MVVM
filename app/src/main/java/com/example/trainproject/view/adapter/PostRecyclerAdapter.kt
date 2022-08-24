@@ -12,7 +12,7 @@ class PostRecyclerAdapter : RecyclerView.Adapter<PostRecyclerAdapter.ViewHolder>
     /**
      * Initialize a list of posts
      */
-     var postsList: List<PostModel> = ArrayList()
+    var postsList: List<PostModel> = ArrayList()
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val titleTV: TextView = view.findViewById(R.id.titleTV)
@@ -43,8 +43,8 @@ class PostRecyclerAdapter : RecyclerView.Adapter<PostRecyclerAdapter.ViewHolder>
     /**
      * Method to update adapter
      */
-    fun filteredData(filterList: ArrayList<PostModel> ){
-        postsList=filterList
+    fun filteredData(filterList: ArrayList<PostModel>) {
+        postsList = filterList
         notifyDataSetChanged()
     }
 }

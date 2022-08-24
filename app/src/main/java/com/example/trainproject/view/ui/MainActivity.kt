@@ -1,7 +1,6 @@
 package com.example.trainproject.view.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +15,6 @@ import com.example.trainproject.data.model.PostModel
 import com.example.trainproject.view.adapter.PostRecyclerAdapter
 import com.example.trainproject.viewmodel.PostViewModel
 import java.util.*
-import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,6 +34,9 @@ class MainActivity : AppCompatActivity() {
      */
     private lateinit var swipeRefresh: SwipeRefreshLayout
 
+    /**
+     * Initialize a list to save the retrieved data from rest api
+     */
     private lateinit var postsList: List<PostModel>
 
 
@@ -47,7 +48,6 @@ class MainActivity : AppCompatActivity() {
         initViewModel()
 
         initRecyclerView()
-
 
         initSwipeRefresh()
 
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
          */
         viewModel.data.observe(this, Observer<List<PostModel>> { list ->
             postAdapter.postsList = list
-            postsList=list
+            postsList = list
         })
     }
 
@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
              * Shuffle the data to simulate data updated process
              */
             Collections.shuffle(postsList, Random(System.currentTimeMillis()))
-            postAdapter.postsList =postsList
+            postAdapter.postsList = postsList
             postAdapter.notifyDataSetChanged()
 
         }
